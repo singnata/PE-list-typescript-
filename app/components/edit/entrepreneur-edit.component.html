@@ -1,0 +1,13 @@
+<div class="details">
+  <div class="row" [ngClass]="{'opacity': isShowMessage === true}">
+    <entrepreneur-form
+      [detail]="entrepreneur"
+      (edit)="saveEntrepreneurChanges($event)">
+    </entrepreneur-form> 	
+  </div>
+  <div class="row">
+    <div class="message" *ngIf="isShowMessage">
+      {{successMessage}}
+    </div>
+  </div>
+</div>

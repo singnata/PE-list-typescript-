@@ -1,0 +1,40 @@
+.details {
+	padding: 0 150px;
+	font-size: 25px;
+	color: #000099;	
+	font: 15px Lucida Sans Unicode, sans-serif;	
+	position: relative;
+  margin-bottom: 100px;
+  input {
+    border: 1px solid #000099;
+	  border-radius: 5px;
+	  text-align: center;
+	  float: right;
+	  margin-top: 5px;
+  }
+  .opacity {
+    opacity: .2;
+  }
+  .message {
+    text-align: center;
+    font-size: 18px;
+    color: #800000;
+    position: fixed;
+    animation: fadeout 2.8s;
+    top: 350px;
+    width: 30%;
+    left: 35%;
+    height: 90px;
+    line-height: 80px;
+    border-radius: 10px;
+    border: solid 2px #800000;
+    background-color: #fff;
+  }
+  label, input {
+    font-size: 16px;
+    color: #000099;	
+  }
+  label {
+	margin-left: 20px;
+  }
+}

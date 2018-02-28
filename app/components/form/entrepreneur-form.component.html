@@ -1,0 +1,307 @@
+<form name="editForm" #editForm="ngForm" >
+	<div class="row form-group">
+		<div class="form-group__item">
+			<label for="firstName">First Name</label>
+			<input 
+				name="firstName"
+				id="firstName"
+				type="text" 
+				[ngModel]="detail?.firstName"
+				#firstName="ngModel" 
+				pattern="[a-zA-Z]+([\-][a-zA-Z]+)?" 
+				required>
+			<div
+				class="error"
+				*ngIf="firstName.touched && firstName.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="firstName.touched && firstName.hasError('pattern')">
+				enter a valid first name
+			</div> 
+			<pre>{{firstName.errors | json}}</pre>
+		</div>
+		<div class="form-group__item">
+			<label for="lastName">Last Name</label>
+			<input 
+				name="lastName" 
+				id="lastName"
+				type="text"
+				[ngModel]="detail?.lastName" 
+				#lastName="ngModel" 
+				pattern="[a-zA-Z]+([\-][a-zA-Z]+)?"
+				required>
+			<div
+				class="error"
+				*ngIf="lastName.touched && lastName.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="lastName.touched && lastName.hasError('pattern')">
+				enter a valid last name
+			</div> 
+		</div>
+		<div class="form-group__item">
+			<label for="code">Identification Code</label>
+			<input 
+				name="code" 
+				id="code"
+				type="number"
+				[ngModel]="detail?.code" 
+				#code="ngModel" 
+				pattern="[1-9][0-9]{9}$"
+				required>
+			<div
+				class="error"
+				*ngIf="code.touched && code.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="code.touched && code.hasError('pattern')">
+				enter a valid code
+			</div> 
+		</div>
+	</div>
+	<div class="row form-group">
+		<div class="form-group__description">
+			Address
+		</div>
+		<div class="form-group__item">
+			<label for="zipCode">Zip Code</label>
+			<input 
+				name="zipCode" 
+				id="zipCode"
+				type="text"
+				[ngModel]="detail?.zipCode" 
+				#zipCode="ngModel" 
+				pattern="[0-9]{5}"
+				required>
+			<div
+				class="error"
+				*ngIf="zipCode.touched && zipCode.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="zipCode.touched && zipCode.hasError('pattern')">
+				enter a valid Zip Code
+			</div>
+		</div>
+		<div class="form-group__item">
+			<label for="region">Region</label>
+			<input 
+				name="region"
+				id="region" 
+				type="text"
+				[ngModel]="detail?.region" 
+				#region="ngModel"
+				pattern="[a-zA-Z]+([\-][a-zA-Z]+)?">
+			<div
+				class="error"
+				*ngIf="region.touched && region.hasError('pattern')">
+				enter a valid Region
+			</div>
+		</div>
+		<div class="form-group__item">
+			<label for="city">City</label>
+			<input 
+				name="city"
+				id="city" 
+				type="text"
+				[ngModel]="detail?.city" 
+				#city="ngModel" 
+				pattern="[a-zA-Z]+([\-\s][a-zA-Z]+)?"
+				required>
+			<div
+				class="error"
+				*ngIf="city.touched && city.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="city.touched && city.hasError('pattern')">
+				enter a valid City
+			</div>
+		</div>
+		<div class="form-group__item">
+			<label for="street">Street</label>
+			<input 
+				name="street"
+				id="street" 
+				type="text"
+				[ngModel]="detail?.street" 
+				#street="ngModel" 
+				pattern="[1-9\s]{0,3}[a-zA-Z]+([\-\s][a-zA-Z]+)?"
+				required>
+			<div
+				class="error"
+				*ngIf="street.touched && street.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="street.touched && street.hasError('pattern')">
+				enter a valid Street
+			</div>
+		</div>
+		<div class="form-group__item">
+			<label for="streetNumber">Street Number</label>
+			<input 
+				name="streetNumber" 
+				id="streetNumber"
+				type="text"
+				[ngModel]="detail?.streetNumber" 
+				#streetNumber="ngModel" 
+				pattern="[1-9][0-9]?(([\-\/\s]?[a-zA-Z])|([\/][1-9]))?"
+				required>
+			<div
+				class="error"
+				*ngIf="streetNumber.touched && streetNumber.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="streetNumber.touched && streetNumber.hasError('pattern')">
+				enter a valid Street Number
+			</div>
+		</div>
+		<div class="form-group__item">
+			<label for="apartmentNumber">Apartment Number</label>	
+			<input 
+				name="apartmentNumber"
+				id="apartmentNumber" 
+				type="number"
+				[ngModel]="detail?.apartmentNumber" 
+				pattern="[1-9]{1}[1-9]{0,2}"
+				#apartmentNumber="ngModel">
+				<pre>{{apartmentNumber.errors | json}}</pre>
+			<div
+				class="error"
+				*ngIf="apartmentNumber.touched && apartmentNumber.hasError('pattern')">
+				enter a Apartment Number between 1 and 399
+			</div>
+		</div>
+	</div>
+	<div class="row form-group">
+		<div class="form-group__description">
+			Registration
+		</div>
+		<div class="form-group__item">
+		<label for="registrationNumber">Registration Number</label>
+		<input 
+				name="registrationNumber" 
+				id="registrationNumber"
+				type="text"
+				[ngModel]="detail?.registrationNumber" 
+				#registrationNumber="ngModel"
+				pattern="[1-9][\s]?[0-9]{3}[\s]?[0]{3}[\s]?[0]{4}[\s]?[0-9]{6}"
+				required>
+			<div
+				class="error"
+				*ngIf="registrationNumber.touched && registrationNumber.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="registrationNumber.touched && registrationNumber.hasError('pattern')">
+				enter a valid Registration Number
+			</div>
+		</div>
+		<div class="form-group__item">
+			<label for="dateOfRegistration">Registration Date</label>
+			<input 
+				name="dateOfRegistration"
+				id="dateOfRegistration" 
+				type="date"
+				[ngModel]="detail?.dateOfRegistration | dateFormatPipe" 
+				#dateOfRegistration="ngModel"
+				required>
+			<div
+				class="error"
+				*ngIf="dateOfRegistration.touched && dateOfRegistration.hasError('required')">
+				field is required
+			</div>
+		</div>
+	</div>
+	<div class="row form-group">
+		<div class="form-group__description">
+			Bank Account
+		</div>
+		<div class="form-group__item">
+			<label for="account">Account</label>
+			<input 
+				name="account" 
+				id="account"
+				type="number"
+				[ngModel]="detail?.account" 
+				#account="ngModel"
+				pattern="2600[0-9]{6,12}"
+				required>
+			<div
+				class="error"
+				*ngIf="account.touched && account.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="account.touched && account.hasError('pattern')">
+				enter a valid Account
+			</div>
+		</div>
+		<div class="form-group__item">
+			<label for="bank">Bank</label>
+			<input 
+				name="bank" 
+				id="bank"
+				type="text"
+				[ngModel]="detail?.bank" 
+				#bank="ngModel"
+				pattern="[a-zA-Z]+([\s][a-zA-Z]+){0,2}"
+				required>
+			<div
+				class="error"
+				*ngIf="bank.touched && bank.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="bank.touched && bank.hasError('pattern')">
+				enter a valid Bank
+			</div>
+		</div>
+		<div class="form-group__item">
+			<label for="mfo">MFO</label>
+			<input 
+				name="mfo" 
+				id="mfo"
+				type="number"
+				[ngModel]="detail?.mfo" 
+				#mfo="ngModel"
+				pattern="3[0-9]{5}"
+				required>
+			<div
+				class="error"
+				*ngIf="mfo.touched && mfo.hasError('required')">
+				field is required
+			</div>
+			<div
+				class="error"
+				*ngIf="mfo.touched && mfo.hasError('pattern')">
+				enter a valid MFO
+			</div>
+		</div>
+	</div>
+	<div class="changes">
+			<!-- ng-disabled="editForm.$invalid"  -->
+		<button [disabled]="editForm.invalid" class="button__changes" (click)="saveEntrepreneur(editForm.value)">
+			save changes
+		</button>
+	</div>
+	<pre>{{detail | json}}</pre>
+</form>
+
+
+

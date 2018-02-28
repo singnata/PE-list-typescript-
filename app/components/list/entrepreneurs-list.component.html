@@ -1,0 +1,19 @@
+<div class="list">
+	<h1>Private Entrepreneurs</h1>
+	<button class="button__new">
+		<a routerLink="/new">
+			add a new entrepreneur
+		</a>
+	</button>
+  <div class="item" *ngFor="let item of entrepreneurs"> 
+    {{item.lastName}} {{item.firstName}} 
+    <button class="button__details" item="item">
+    	<a routerLink="/entrepreneurs/{{item.id}}">
+    		more details
+    	</a>
+    </button>
+    <button class="button__delete" (click)="deleteEntrepreneur(item.id, item.lastName)">
+				delete 
+		</button>
+	</div>	
+</div>

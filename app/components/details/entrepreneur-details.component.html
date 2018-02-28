@@ -1,0 +1,77 @@
+<div class="row details">
+	<div class="name" autoscroll>
+		<div>{{entrepreneur?.lastName}} {{entrepreneur?.firstName}}</div>
+		<button class="button__edit">
+			<a routerLink="/entrepreneur/{{entrepreneur?.id}}/edit">
+				edit profile
+			</a>
+		</button>
+  </div>
+	<div class="row">
+		<table>
+			<tr>
+				<td>Identification Code</td>
+				<td>{{entrepreneur?.code}}</td>
+			</tr>
+		</table>
+	</div>
+	<div class="description">Address</div>
+	<div class="row">
+	  <table>
+			<tr>
+				<td>Zip Code</td>
+				<td>{{entrepreneur?.zipCode}}</td>
+			</tr>
+			<tr>
+				<td>Region</td>
+				<td>{{entrepreneur?.region}}</td>
+			</tr>
+			<tr>
+				<td>City</td>
+				<td>{{entrepreneur?.city}}</td>
+			</tr>
+			<tr>
+				<td>Street</td>
+				<td>{{entrepreneur?.street}}</td>
+			</tr>
+			<tr>
+				<td>Street Number</td>
+				<td>{{entrepreneur?.streetNumber}}</td>
+			</tr>
+			<tr ng-if="$ctrl.entrepreneur.address.apartment_number">
+				<td>Apartment Number</td>
+				<td>{{entrepreneur?.apartmentNumber}}</td>
+			</tr>
+		</table>
+	</div>
+	<div class="description">Registration</div>
+	<div class="row">
+		<table>
+			<tr>
+				<td>Registration Number</td>
+				<td>{{entrepreneur?.registrationNumber}}</td>
+			</tr>
+			<tr>
+				<td>Registration Date</td>
+				<td>{{entrepreneur?.dateOfRegistration | date}}</td>
+			</tr>
+		</table>
+	</div>
+	<div class="description">Bank Account</div>
+	<div class="row">
+	  <table>
+			<tr>
+				<td>Account</td>
+				<td>{{entrepreneur?.account}}</td>
+			</tr>
+			<tr>
+				<td>Bank</td>
+				<td>{{entrepreneur?.bank}}</td>
+			</tr>
+			<tr>
+				<td>MFO</td>
+				<td>{{entrepreneur?.mfo}}</td>
+			</tr>
+		</table>
+	</div>
+</div>
